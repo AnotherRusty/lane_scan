@@ -9,6 +9,9 @@ def Degree2Radius(x):
 def Radius2Degree(x):
     return x/math.pi*180
 
+def Round(x):
+    return round(x)
+
 def RoundUp(x):
     return math.ceil(x)
 
@@ -23,3 +26,9 @@ def Cartesian2Polar(x, y):
 def Polar2Cartesian(r, th):
     x = r * math.cos(th)
     y = r * math.sin(th)
+
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
