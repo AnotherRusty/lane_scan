@@ -17,8 +17,7 @@ class Line:
     def polarDegree(self):
         th1, d1 = Cartesian2PolarInDegree(self.x1, self.y1)
         th2, d2 = Cartesian2PolarInDegree(self.x2, self.y2)
-        print(th1, d1, th2, d2)
-
+        return int(th1), d1, int(th2), d2
 
 if __name__ == '__main__':
     Car1 = Line(-0.11, 0.4, 0.1, 0.4)
