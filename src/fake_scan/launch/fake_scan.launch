@@ -1,0 +1,3 @@
+<launch>
+  <node name="fake_scan" pkg="fake_scan" type="fake_scan.py" output="screen"/>
+</launch>
