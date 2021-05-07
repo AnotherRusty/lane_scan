@@ -3,10 +3,12 @@
 
 import math
 
-def Degree2Radius(x):
+PI = math.pi
+
+def Degree2Radian(x):
     return x*math.pi/180
 
-def Radius2Degree(x):
+def Radian2Degree(x):
     return x/math.pi*180
 
 def Round(x):
@@ -18,17 +20,43 @@ def RoundUp(x):
 def RoundDown(x):
     return math.floor(x)
 
-def Cartesian2Polar(x, y):
+def Cartesian2Polar((x, y)):
     r = math.sqrt(x**2 + y**2)
     th = math.atan2(y, x)
     return r, th
 
-def Polar2Cartesian(r, th):
+def Polar2Cartesian((r, th)):
     x = r * math.cos(th)
     y = r * math.sin(th)
+    return x, y
 
+def Rotate(th, dth):
+    return th + dth
 
-class Point:
-    def __init__(self, x, y):
+def ListRotate(lth, dth):
+    new = []
+    for th in lth:
+        new.append(Rotate(th, dth))
+    return new
+
+class CartesianPoint:
+    def __init__(self, (x, y)):
         self.x = x
         self.y = y
+    
+    def show(self):
+        print(self.getdata())
+
+    def getdata(self):
+        return self.x, self.y
+
+class PolarPoint:
+    def __init__(self, (r, th)):
+        self.r = r
+        self.th = th
+    
+    def show(self):
+        print(self.getdata())
+    
+    def getdata(self):
+        return self.r, self.th
