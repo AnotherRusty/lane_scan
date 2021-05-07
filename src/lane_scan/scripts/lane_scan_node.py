@@ -28,12 +28,7 @@ if __name__ == '__main__':
     scan_topic = rospy.get_param('~scan_topic')
     rospy.Subscriber(scan_topic, LaserScan, raw_callback)
     
-    sleep(2)
-    node.spin()
-    report()
-    
     while not rospy.is_shutdown():
-        # node.spin()
-        # report()
-        # rate.sleep()
-        pass
+        node.spin()
+        report()
+        rate.sleep()
