@@ -1,7 +1,9 @@
 <launch>
   <node name="lane_scan" pkg="lane_scan" type="lane_scan_node.py" output="screen">
+    <param name="scan_topic" type="string" value="scan"/>
     <param name="object_width" type="int" value="108"/>  <!-- mm -->
     <param name="detect_dist" type="int" value="500"/> <!-- mm -->
+    <param name="adjust_angle" type="int" value="90"/> <!-- degree couter-clockwise -->
     <rosparam param="detect_ranges">[0, 180]</rosparam> <!-- degree -->
   </node>
 </launch>
