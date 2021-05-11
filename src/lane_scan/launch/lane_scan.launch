@@ -1,6 +1,7 @@
 <launch>
-  <node name="lane_scan" pkg="lane_scan" type="lane_scan_node.py" output="screen">
+  <node name="lane_scan" pkg="lane_scan" type="scan_node.py" output="screen">
     <param name="scan_topic" type="string" value="scan"/>
+    <param name="output_topic" type="string" value="lane_scan_result"/>
     <param name="object_width" type="int" value="108"/>  <!-- mm -->
     <param name="detect_dist" type="int" value="500"/> <!-- mm -->
     <param name="adjust_angle" type="int" value="90"/> <!-- degree counter-clockwise -->
