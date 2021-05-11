@@ -24,6 +24,7 @@ def publish_result():
     header = Header()
     header.stamp = rospy.Time.now()
     output.header = header
+    output.num = len(result)
     for object_loc in result:
         output.x.append(object_loc[0])
         output.y.append(object_loc[1])
