@@ -1,0 +1,5 @@
+<launch>
+  <node name="main_app" pkg="main_app" type="application.py" output="screen">
+    <param name="scan_output_topic" type="string" value="lane_scan_result"/>
+  </node>
+</launch>
