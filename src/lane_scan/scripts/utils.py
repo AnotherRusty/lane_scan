@@ -20,6 +20,14 @@ def RoundUp(x):
 def RoundDown(x):
     return math.floor(x)
 
+def RoundDecimalUp(x, decimals):
+    factor = 10 ** decimals
+    return math.ceil(x * factor) / factor
+
+def RoundDecimalDown(x, decimals):
+    factor = 10 ** decimals
+    return math.floor(x * factor) / factor
+
 def Cartesian2Polar((x, y)):
     r = math.sqrt(x**2 + y**2)
     th = math.atan2(y, x)
