@@ -29,7 +29,8 @@ class LaneScan:
         self.filtered_angles = []
 
         self.object_width = 0.0 # m
-        self.detect_dist = 0.0  # m
+        self.detect_dist_min = 0.0  # m
+        self.detect_dist_max = 0.0  # m
         self.adjust_angle = 0   # degree
         self.detect_ranges = [] # list of angles in degree
 
@@ -113,7 +114,7 @@ class LaneScan:
         new_angles = []
 
         for r, th in zip(self.filtered_ranges, self.filtered_angles):
-            if r < self.detect_dist:
+            if self.detect_dist_min < r < self.detect_dist_max:
                 new_ranges.append(r)
                 new_angles.append(th)
         self.filtered_ranges = new_ranges
@@ -122,10 +123,9 @@ class LaneScan:
     def convert2PolarPoints(self, ranges, angles):
         polarpoints = []
         for r, th in zip(ranges, angles):
-            if r < self.detect_dist:
-                pp = PolarPoint((r, th))
-                # pp.show()
-                polarpoints.append(pp)
+            pp = PolarPoint((r, th))
+            # pp.show()
+            polarpoints.append(pp)
         return polarpoints
 
     def convert2CartesianPoints(self, ranges, angles):
