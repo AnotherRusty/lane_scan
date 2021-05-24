@@ -2,7 +2,7 @@
   <node name="lane_scan" pkg="lane_scan" type="scan_node.py" output="screen">
     <param name="scan_topic" type="string" value="scan"/>
     <param name="output_topic" type="string" value="lane_scan_result"/>
-    <param name="object_width" type="int" value="108"/>  <!-- mm -->
+    <param name="object_span" type="int" value="10"/>  <!-- samples -->
     <param name="detect_dist_min" type="int" value="100"/> <!-- mm -->
     <param name="detect_dist_max" type="int" value="500"/> <!-- mm -->
     <param name="adjust_angle" type="int" value="90"/> <!-- degree counter-clockwise -->

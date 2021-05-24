@@ -8,7 +8,6 @@ ENABLE_PLOT = False
 
 BREAK_DISTANCE_MIN = 0.1    # m, minimum distance considered as a break
 BREAK_ANGLE_MIN = PI / 180  # radian,  minimum angle considered as a break
-OBJECT_SPAN_MIN_POINTS_NUM = 10 
 
 if ENABLE_PLOT:
     import plotter
@@ -28,7 +27,7 @@ class LaneScan:
         self.filtered_ranges = []
         self.filtered_angles = []
 
-        self.object_width = 0.0 # m
+        self.object_span = 0  # samples
         self.detect_dist_min = 0.0  # m
         self.detect_dist_max = 0.0  # m
         self.adjust_angle = 0   # degree
@@ -173,7 +172,7 @@ class LaneScan:
         breaks.insert(0, 0)
         breaks.append(n_interest)
         for n1,n2 in zip(breaks[:-1:], breaks[1::]):
-            if (n2-n1) > OBJECT_SPAN_MIN_POINTS_NUM:
+            if (n2-n1) > self.object_span:
                 middle = (n1+n2)/2
                 # print("Found a object at %dth point." %(middle))
                 self.results.append(points[middle].getdata())
